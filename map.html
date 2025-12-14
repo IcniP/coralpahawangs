@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peta Wisata Pulau Pahawang</title>
+    
+    <link rel="stylesheet" href="Website/css/style.css" />
+    <link rel="stylesheet" href="map/style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            padding-top: 80px; 
+            background-color: #f4f4f4; 
+        }
+        .main-footer {
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<script type="module" src="Website/js/main.js"></script>
+<body>
+
+    <nav class="fixed-navigation-bar"> 
+        <div class="nav-logo-container">
+          <a href="main.html">
+            <img
+              id="logo-img"
+              src="Website/img/navigation_logo.svg"
+              alt="logo-coral"
+            />
+          </a>
+        </div>
+        <div class="nav-links-container">
+          <a href="main.html" class="nav-link" data-color="#0b1517">Home</a>
+          <a href="main.html#coral-type" class="nav-link" data-color="#550b15">Coral Type</a>
+          <a href="main.html#gallery" class="nav-link" data-color="#150b55">Gallery</a>
+          
+          <a href="map.html" class="nav-link" data-color="#0b8a17">Map</a>
+          <a href="360.html" class="nav-link" data-color="#0b5555">360 Tour</a>
+        </div>
+      </nav>
+
+    <section class="map-sect">
+        <div class="peta-div">
+            <div class="peta-div-left">
+                <h1>PETA WISATA PULAU PAHAWANG</h1>
+                <p>Jelajahi pesona bawah laut dan keindahan alam pahawang melalui panduan peta interaktif ini!</p>
+                <p>Temukan titik penting, lokasi penginapan, hingga titik spot snorkeling terbaik.</p>
+                <p>Gunakan peta ini sebagai panduan digital kamu sebelum berangkat ke Pulau Pahawang!</p>
+                <button>Download Peta</button>
+            </div>
+            <div class="peta-div-right">
+                <div class="map-wrapper">
+                    <img src="map/map/map.webp" alt="Peta Wisata" class="main-map">
+                    
+                    <div id="map-selector"></div>
+                
+                    <img src="map/header.webp" class="map-indicator" id="pos-header">
+                    <img src="" class="info-popup" id="info-popup" style="display: none;">
+                    
+                    <img src="map/map/mangrovetracking.webp" class="map-indicator clickable" id="pos-mangrove" data-img="map/maptext/mangrove.webp">     
+                    <img src="map/map/pahawangteea.webp" class="map-indicator clickable" id="pos-teea" data-img="map/maptext/teea.webp">
+                    <img src="map/map/Pasirtimbul.webp" class="map-indicator clickable" id="pos-pasir" data-img="map/maptext/pasir.webp">
+                    <img src="map/map/spotbungsu.webp" class="map-indicator clickable" id="pos-bungsu" data-img="map/maptext/bungsu.webp">
+                    <img src="map/map/spotgemilang.webp" class="map-indicator clickable" id="pos-gemilang" data-img="map/maptext/gemilang.webp">
+                    <img src="map/map/spotnemokembar.webp" class="map-indicator clickable" id="pos-nemo" data-img="map/maptext/nemo.webp">
+                    <img src="map/map/transplantasiterumbukarang.webp" class="map-indicator clickable" id="pos-terumbu" data-img="map/maptext/terumbu.webp">
+                    <img src="map/map/watersport.webp" class="map-indicator clickable" id="pos-watersport" data-img="map/maptext/watersport.webp">
+                
+                    <img src="map/map/kamudisini.webp" class="map-indicator clickable" id="pos-pin" data-img="map/maptext/kamudisini.webp">
+                </div>
+            </div>
+        </div>
+
+        <div class="pulau-div">
+            <h1>PULAU PAHAWANG</h1>
+            <p>Pulau Pahawang berlokasi di Kabupaten Pesawaran, Lampung. Pulau ini dikenal dengan air lautnya yang jernih, pasir putih, serta keindahan bawah laut yang menjadi daya tarik utama bagi wisatawan. Kegiatan seperti snorkeling, diving, dan island hopping menjadi aktivitas favorit di pulau ini. Selain itu, suasana desa pesisir dan keramahan penduduk lokal membuat pengalaman wisata semakin menyenangkan.</p>
+            <div class="img-placeholder tall-placeholder">
+                <img src="map/pulau-img.webp">
+            </div>
+        </div>
+
+        <div class="tips-div">
+            <div class="tips-div-top">
+                <div class="tips-text-wrapper">
+                    <h1 style="color: rgb(94, 199, 7);">TIPS BERWISATA DI PULAU PAHAWANG</h1>
+                    <p>Agar liburanmu di Pahawang semakin nyaman dan berkesan, pastikan kamu mempersiapkan diri dengan baik.</p>
+                    <p>Berikut beberapa tips sederhana yang bisa kamu ikuti:</p>
+                </div>
+                <div class="img-placeholder medium-placeholder">
+                    <img src="map/tips-img.webp">
+                </div>
+            </div>
+            <div class="tips-div-bottom">
+                <div class="tip-item">
+                    <img src="map/tips-card-1.webp">
+                </div>
+                <div class="tip-item">
+                    <img src="map/tips-card-2.webp">
+                </div>
+                <div class="tip-item">
+                    <img src="map/tips-card-3.webp">
+                </div>
+                <div class="tip-item">
+                    <img src="map/tips-card-4.webp">
+                </div>
+            </div>
+        </div>
+
+        <div class="saat-div">
+            <div class="saat-div-left">
+                <h1>SAAT DI PAHAWANG KAMU HARUS:</h1>
+                <img src="map/saat-img.webp">
+            </div>
+            <div class="saat-div-right">
+                <div class="saat-grid">
+                    <div class="saat-item" id="item-bersih">
+                        <img src="map/saat-bar-1.webp">
+                    </div>
+                    <div class="saat-item" id="item-warga">
+                        <img src="map/saat-bar-2.webp">
+                    </div>
+                    <div class="saat-item" id="item-alam">
+                        <img src="map/saat-bar-3.webp">
+                    </div>
+                    <div class="saat-item" id="item-aman">
+                        <img src="map/saat-bar-4.webp">
+                    </div>
+                </div> 
+            </div> 
+        </div>
+
+        <div class="waktu-div">
+            <div class="waktu-div-left">
+                <div class="waktu-header-flex">
+                    <h2>WAKTU TERBAIK BERWISATA KE PAHAWANG</h2>
+                    <div class="img-placeholder">
+                        <img src="map/waktu-img.webp">
+                    </div>
+                </div>
+                <div class="waktu-alasan-grid">
+                    <div class="waktu-alasan-item">
+                        <div class="img-placeholder small-placeholder"><img src="map/waktu-card-1.webp"></div>
+                        <p>Kondisi air laut lebih tenang</p>
+                    </div>
+                    <div class="waktu-alasan-item">
+                        <div class="img-placeholder small-placeholder"><img src="map/waktu-card-2.webp"></div>
+                        <p>Ombak cenderung kecil</p>
+                    </div>
+                    <div class="waktu-alasan-item">
+                        <div class="img-placeholder small-placeholder"><img src="map/waktu-card-3.webp"></div>
+                        <p>Air laut jernih dan visibilitas bawah laut bagus</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="waktu-div-right">
+                <div class="estimasi-header">
+                    <h2>Estimasi jarak dan waktu perjalanan:</h2>
+                    <div class="img-placeholder icon-placeholder"><img src="map/estimasi-img.webp"></div>
+                </div>
+                <div class="estimasi-wrapper">
+                    <div class="estimasi-item-content">
+                        <p><strong>Dari Bandar Lampung ke Dermaga Ketapang</strong> melalui jalur darat, dengan waktu tempuh sekitar 25–60 menit.</p>
+                    </div>
+                    <div class="jarak-badge">
+                        Jarak: <strong>±25–35 km</strong>
+                    </div>
+                </div>
+                <div class="estimasi-wrapper">
+                    <div class="estimasi-item-content">
+                        <p><strong>Dari Dermaga Ketapang ke Pulau Pahawang</strong> menggunakan perahu, dengan waktu perjalanan sekitar 30–60 menit.</p>
+                    </div>
+                    <div class="jarak-badge" id="jarak-badge-2">
+                        Jarak: <strong>±7–12 km</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <img src="Website/img/navigation_logo_white.svg" alt="Bloom Reef Logo" />
+          <p>
+            Coral reefs may cover only a small part of the ocean floor, but
+            they support nearly a quarter of all marine life, making them one
+            of the most vital ecosystems on Earth.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Link’s</h4>
+          <ul>
+            <li><a href="main.html">About</a></li>
+            <li><a href="main.html#coral-type">Coral Type</a></li>
+            <li><a href="main.html#gallery">Gallery</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Stay Connected</h4>
+          <p><em>(Social media icons here)</em></p>
+        </div>
+      </div>
+      <div class="footer-bottom-text">
+        © 2024 The Bloom Reef. All rights reserved.
+      </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const selector = document.getElementById('map-selector'); 
+            const popup = document.getElementById('info-popup');
+            const destinations = document.querySelectorAll('.clickable');
+            const startPin = document.getElementById('pos-pin'); 
+
+            function moveSelector(targetElement) {
+                const targetLeft = targetElement.offsetLeft;
+                const targetTop = targetElement.offsetTop;
+                const targetWidth = targetElement.offsetWidth;
+                const targetHeight = targetElement.offsetHeight;
+
+                selector.style.display = 'block';
+                selector.style.left = (targetLeft + (targetWidth / 2)) + 'px';
+                selector.style.top = (targetTop + (targetHeight / 2)) + 'px';
+            }
+
+            function showInfo(element) {
+                const imgSource = element.getAttribute('data-img'); 
+                if(imgSource) {
+                    popup.src = imgSource;
+                    popup.style.display = 'block'; 
+                }
+            }
+
+            destinations.forEach(item => {
+                item.addEventListener('click', function() {
+                    moveSelector(this);
+                    showInfo(this);
+                });
+            });
+
+            if (startPin) {
+                showInfo(startPin);
+                setTimeout(() => {
+                    moveSelector(startPin);
+                }, 100);
+            }
+        });
+    </script>
+</body>
+</html>
