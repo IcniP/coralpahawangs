@@ -27,14 +27,19 @@
 
     <nav class="fixed-navigation-bar"> 
         <div class="nav-logo-container">
-          <a href="main.html">
-            <img
-              id="logo-img"
-              src="Website/img/navigation_logo.svg"
-              alt="logo-coral"
-            />
-          </a>
-        </div>
+            <a href="main.html" style="display: flex; align-items: center; gap: 15px;">
+              <img
+                id="logo-img"
+                src="Website/img/navigation_logo.svg"
+                alt="logo-coral"
+              />
+              <img
+                src="Website/img/pahawanglogo.svg"
+                alt="logo-pahawang"
+                style="height: 50px; width: auto;" 
+              />
+            </a>
+          </div>
         <div class="nav-links-container">
           <a href="main.html" class="nav-link" data-color="#0b1517">Home</a>
           <a href="main.html#coral-type" class="nav-link" data-color="#550b15">Coral Type</a>
@@ -58,7 +63,7 @@
                 <div class="map-wrapper">
                     <img src="map/map/map.webp" alt="Peta Wisata" class="main-map">
                     
-                    <div id="map-selector"></div>
+                    <img src="map/map/pointer.webp" id="map-selector">
                 
                     <img src="map/header.webp" class="map-indicator" id="pos-header">
                     <img src="" class="info-popup" id="info-popup" style="display: none;">
@@ -71,7 +76,6 @@
                     <img src="map/map/spotnemokembar.webp" class="map-indicator clickable" id="pos-nemo" data-img="map/maptext/nemo.webp">
                     <img src="map/map/transplantasiterumbukarang.webp" class="map-indicator clickable" id="pos-terumbu" data-img="map/maptext/terumbu.webp">
                     <img src="map/map/watersport.webp" class="map-indicator clickable" id="pos-watersport" data-img="map/maptext/watersport.webp">
-                
                     <img src="map/map/kamudisini.webp" class="map-indicator clickable" id="pos-pin" data-img="map/maptext/kamudisini.webp">
                 </div>
             </div>
@@ -204,11 +208,11 @@
         </div>
         <div class="footer-col">
           <h4>Stay Connected</h4>
-          <p><em>(Social media icons here)</em></p>
+          <p><em></em></p>
         </div>
       </div>
       <div class="footer-bottom-text">
-        © 2024 The Bloom Reef. All rights reserved.
+        © 2025 The Bloom Reef. All rights reserved.
       </div>
     </footer>
 
@@ -227,7 +231,7 @@
 
                 selector.style.display = 'block';
                 selector.style.left = (targetLeft + (targetWidth / 2)) + 'px';
-                selector.style.top = (targetTop + (targetHeight / 2)) + 'px';
+                selector.style.top = (targetTop + (targetHeight / 6)) + 'px';
             }
 
             function showInfo(element) {
