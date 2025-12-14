@@ -109,32 +109,24 @@ button:hover {
     display: block;  
 }
 
-/* Map Selector (Lingkaran Penunjuk) */
+/* Map Selector (Diganti menjadi Gambar Pointer) */
 #map-selector {
     position: absolute;
-    width: 40px;
-    height: 40px;
-    border: 3px solid #ffffff;
-    background-color: rgba(229, 75, 75, 0.6);
-    border-radius: 50%;
+    width: 60px; /* Sesuaikan ukuran pointer gambar */
+    height: auto;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
     z-index: 15;
     pointer-events: none;
     transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    box-shadow: 0 0 15px rgba(229, 75, 75, 0.8);
     transform: translate(-50%, -50%);
     display: none;
 }
 
 #map-selector::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    border: 2px solid #e54b4b;
-    top: -2px; 
-    left: -2px;
-    animation: pulse-ring 1.5s infinite;
+    display: none; /* Hilangkan efek pulse lingkaran */
 }
 
 @keyframes pulse-ring {
@@ -485,7 +477,6 @@ button:hover {
    6. RESPONSIVE MEDIA QUERIES
    ========================================= */
 @media (max-width: 768px) {
-    /* Global Typography */
     h1 { font-size: 2rem; }
     h2 { font-size: 1.75rem; }
 
@@ -509,21 +500,26 @@ button:hover {
         top: 15%;
     }
 
-    /* Sections Layout */
     .peta-div, 
     .pulau-div, 
     .tips-div, 
     .saat-div, 
     .waktu-div {
         padding: 1.5rem;
-        flex-direction: column;
+        flex-direction: column; 
+    }
+    
+    .peta-div-right {
+        order: 2;
+    }
+    .peta-div-left {
+        order: 1;
     }
     
     .saat-div { padding-bottom: 1.5rem; }
     .tips-div-top { flex-direction: column; }
     .saat-grid { grid-template-columns: 1fr; }
 
-    /* Waktu Div Specifics */
     .waktu-div { padding: 1.5rem 0 0 0; }
     .waktu-div-left, .waktu-div-right { padding: 1.5rem; }
     .waktu-alasan-grid { grid-template-columns: 1fr; gap: 1.5rem; }
