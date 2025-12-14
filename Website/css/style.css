@@ -52,12 +52,34 @@ h2 {
   z-index: 1000;
 }
 
-#logo-img {
+.nav-logo-container {
   position: absolute;
-  top: 0px;
+  top: 0;
+  left: 30px; 
+  height: 60px; 
+  display: flex;
+  align-items: center;
+  z-index: 1001;
+}
+
+.nav-logo-container a {
+  display: flex;
+  align-items: center;
+  gap: 15px; 
+  text-decoration: none;
+}
+
+#logo-img {
+  position: relative;
+  top: auto;
+  left: auto;
   width: auto;
   height: 50px;
-  left: 30px;
+}
+
+.nav-logo-container img:not(#logo-img) {
+  height: 40px;
+  width: auto;
 }
 
 .nav-links-container {
@@ -766,6 +788,25 @@ h2 {
   width: 50px;
   height: 1px;
   background-color: rgba(255, 255, 255, 0.3);
+}
+
+#fishContainer {
+  position: absolute;
+  top: 200px;
+  left: 4%;
+  width: 300px;
+  height: 400px;
+  z-index: 20;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  #fishContainer {
+    width: 150px;
+    height: 100px;
+    top: 100px;
+    left: 20px;
+  }
 }
 
 .coral-state-info {

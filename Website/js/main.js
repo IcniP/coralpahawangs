@@ -25,6 +25,7 @@ let container3D;
 // State & Data
 const modelStates = ["normal", "bleached", "dead"];
 let polipScene, polipCamera, polipRenderer, polipLoader, polipObject;
+let fishScene, fishCamera, fishRenderer, fishLoader, fishObject, fishGroup;
 let currentModelStateIndex = 0;
 let isDragging = false;
 let isModelLoading = false;
@@ -329,6 +330,71 @@ function loadPolipModel() {
   );
 }
 
+function initFishScene() {
+  const container = document.getElementById("fishContainer");
+  if (!container) return;
+
+  fishScene = new THREE.Scene();
+  fishCamera = new THREE.PerspectiveCamera(60, container.clientWidth / container.clientHeight, 0.1, 1000);
+
+  fishRenderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+  fishRenderer.setSize(container.clientWidth, container.clientHeight);
+  fishRenderer.setPixelRatio(window.devicePixelRatio);
+  container.appendChild(fishRenderer.domElement);
+
+  const ambientLight = new THREE.AmbientLight(0xffffff, 2.5);
+  fishScene.add(ambientLight);
+
+  const dirLight = new THREE.DirectionalLight(0xffffff, 3);
+  dirLight.position.set(5, 10, 7);
+  fishScene.add(dirLight);
+
+  const fillLight = new THREE.DirectionalLight(0xffffff, 2);
+  fillLight.position.set(-5, 0, -5);
+  fishScene.add(fillLight);
+
+  fishLoader = new GLTFLoader();
+  loadFishModel();
+}
+
+function loadFishModel() {
+  if (!fishLoader) return;
+  
+  fishGroup = new THREE.Group();
+  fishScene.add(fishGroup);
+
+  fishLoader.load(
+    "Website/3d/iwak/ikan.gltf",
+    function (gltf) {
+      fishObject = gltf.scene;
+
+
+      const box = new THREE.Box3().setFromObject(fishObject);
+      const size = new THREE.Vector3();
+      box.getSize(size);
+      
+      const targetSize = 6; 
+      const maxDim = Math.max(size.x, size.y, size.z);
+      const scaleFactor = targetSize / maxDim;
+      
+      fishObject.scale.set(scaleFactor, scaleFactor, scaleFactor);
+
+      const centeredBox = new THREE.Box3().setFromObject(fishObject);
+      const center = new THREE.Vector3();
+      centeredBox.getCenter(center);
+      fishObject.position.sub(center); 
+      fishGroup.add(fishObject);
+      
+      fishCamera.position.set(0, 0, 6);
+      fishCamera.lookAt(0, 0, 0);
+    },
+    undefined,
+    function (error) { 
+        console.error("Error loading fish:", error); 
+    }
+  );
+}
+
 // =============================================
 // 3. HOME SECTION (HERO) LOGIC
 // =============================================
@@ -495,7 +561,6 @@ function initVerticalScrollLogic() {
       if (item) {
         const index = parseInt(item.dataset.index);
         if (index !== currentCoralIndex) { 
-           // Snap logic inline
            const targetItem = coralScrollContainer.querySelector(`.coral-scroll-item[data-index="${index}"]`);
            if (targetItem) {
              const target = getCenterTargetForItem(targetItem);
@@ -560,7 +625,6 @@ function updateMainCoralContent(index) {
   
   currentCoralTypeIndex = index;
 
-  // Auto Scroll Active Card into View
   if (coralNavHorizontal) {
     const card = coralNavHorizontal.querySelector(`.coral-type-card[data-index="${index}"]`);
     if (card) {
@@ -868,7 +932,12 @@ function animate() {
   if (renderer && scene && camera) renderer.render(scene, camera);
 
   if (polipObject) polipObject.rotation.y += 0.005; 
-  if (polipRenderer && polipScene && polipCamera) polipRenderer.render(polipScene, polipCamera); 
+  if (polipRenderer && polipScene && polipCamera) polipRenderer.render(polipScene, polipCamera);
+  
+  if (fishGroup) {
+      fishGroup.position.y = Math.sin(Date.now() * 0.0015) * 0.3;
+  }
+  if (fishRenderer && fishScene && fishCamera) fishRenderer.render(fishScene, fishCamera);
 }
 
 window.addEventListener("resize", function () {
@@ -883,6 +952,13 @@ window.addEventListener("resize", function () {
     polipCamera.aspect = polipContainer.clientWidth / polipContainer.clientHeight;
     polipCamera.updateProjectionMatrix();
     polipRenderer.setSize(polipContainer.clientWidth, polipContainer.clientHeight);
+  }
+
+  const fishContainer = document.getElementById("fishContainer");
+  if (fishRenderer && fishCamera && fishContainer) {
+    fishCamera.aspect = fishContainer.clientWidth / fishContainer.clientHeight;
+    fishCamera.updateProjectionMatrix();
+    fishRenderer.setSize(fishContainer.clientWidth, fishContainer.clientHeight);
   }
 
   const activeLink = document.querySelector(".nav-link.active");
@@ -963,9 +1039,9 @@ window.addEventListener("load", () => {
   setTimeout(() => {
     initThree();
     initPolipScene();
+    initFishScene(); // Memuat Ikan
     initializePageLogic();
     
-    // Init Scroll Logics
     initVerticalScrollLogic();
     initHorizontalScrollLogic();
     
